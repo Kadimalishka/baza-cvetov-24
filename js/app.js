@@ -8,27 +8,30 @@ export function esc(value) {
   return String(value ?? "").replace(/[&<>"']/g, (ch) => ESC[ch]);
 }
 
-// Картинки принимаем только со своего сайта.
-export function safeImg(url, fallback = "/assets/photos/studio.jpg") {
+// Картинки принимаем только со своего сайта. Путь без ведущего слэша,
+// чтобы страницы открывались и с корня, и с GitHub Pages (/baza-cvetov-24/).
+export function safeImg(url, fallback = "assets/photos/studio.jpg") {
   const s = String(url ?? "");
-  return /^\/(assets|uploads)\//.test(s) ? s : fallback;
+  const path = s.startsWith("/") ? s.slice(1) : s;
+  const fb = fallback.startsWith("/") ? fallback.slice(1) : fallback;
+  return /^(assets|uploads)\//.test(path) ? path : fb;
 }
 
 export function icon(name, cls = "") {
-  return `<svg class="icon ${cls}" aria-hidden="true" focusable="false"><use href="/assets/icons/sprite.svg#i-${name}"></use></svg>`;
+  return `<svg class="icon ${cls}" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#i-${name}"></use></svg>`;
 }
 
 // На этапе 2 сервер отдаёт /shop, /catalog/<slug>, /product/<slug>; тогда PRETTY_URLS = true.
 const PRETTY_URLS = false;
 
 export const urls = {
-  home: () => "/",
+  home: () => "index.html",
   shop(params = {}) {
     const q = new URLSearchParams(params).toString();
-    return `${PRETTY_URLS ? "/shop" : "/shop.html"}${q ? `?${q}` : ""}`;
+    return `${PRETTY_URLS ? "/shop" : "shop.html"}${q ? `?${q}` : ""}`;
   },
-  category: (slug) => (PRETTY_URLS ? `/catalog/${encodeURIComponent(slug)}` : `/catalog.html?slug=${encodeURIComponent(slug)}`),
-  product: (slug) => (PRETTY_URLS ? `/product/${encodeURIComponent(slug)}` : `/product.html?slug=${encodeURIComponent(slug)}`),
+  category: (slug) => (PRETTY_URLS ? `/catalog/${encodeURIComponent(slug)}` : `catalog.html?slug=${encodeURIComponent(slug)}`),
+  product: (slug) => (PRETTY_URLS ? `/product/${encodeURIComponent(slug)}` : `product.html?slug=${encodeURIComponent(slug)}`),
 };
 
 /* ---------- Карточка товара (главная, магазин, страница категории) ---------- */

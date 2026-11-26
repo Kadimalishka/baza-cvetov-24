@@ -253,7 +253,7 @@ function initCategoryPage() {
   root.innerHTML = `
     <div class="container seo-page">
       <nav class="crumbs" aria-label="Хлебные крошки"><ol>
-        <li><a href="/">Главная</a></li><li><a href="${urls.shop()}">Каталог</a></li><li aria-current="page">${esc(category.name)}</li>
+        <li><a href="index.html">Главная</a></li><li><a href="${urls.shop()}">Каталог</a></li><li aria-current="page">${esc(category.name)}</li>
       </ol></nav>
       <header class="seo-head">
         <h1>${esc(h1)}</h1>
@@ -280,7 +280,7 @@ function initProductPage() {
   root.innerHTML = `
     <div class="container seo-page">
       <nav class="crumbs" aria-label="Хлебные крошки"><ol>
-        <li><a href="/">Главная</a></li><li><a href="${urls.shop()}">Каталог</a></li>
+        <li><a href="index.html">Главная</a></li><li><a href="${urls.shop()}">Каталог</a></li>
         ${category ? `<li><a href="${urls.category(category.slug)}">${esc(category.name)}</a></li>` : ""}
         <li aria-current="page">${esc(p.title)}</li>
       </ol></nav>
@@ -971,12 +971,12 @@ function dialogsMarkup() {
 
         <div class="order-consents">
           <label class="check"><input type="checkbox" id="data-consent" name="data_consent" aria-describedby="data-consent-error">
-            <span>Согласен(на) на <a href="/consent.html" target="_blank" rel="noopener">обработку персональных данных</a></span></label>
+            <span>Согласен(на) на <a href="consent.html" target="_blank" rel="noopener">обработку персональных данных</a></span></label>
           <p class="field-error" id="data-consent-error"></p>
           <label class="check"><input type="checkbox" id="offer-accepted" name="offer_accepted" aria-describedby="offer-accepted-error">
-            <span>Принимаю условия <a href="/offer.html" target="_blank" rel="noopener">публичной оферты</a></span></label>
+            <span>Принимаю условия <a href="offer.html" target="_blank" rel="noopener">публичной оферты</a></span></label>
           <p class="field-error" id="offer-accepted-error"></p>
-          <p class="hint">Данные нужны только для заказа, без рассылок. <a href="/privacy.html" target="_blank" rel="noopener">Политика обработки данных</a></p>
+          <p class="hint">Данные нужны только для заказа, без рассылок. <a href="privacy.html" target="_blank" rel="noopener">Политика обработки данных</a></p>
         </div>
 
         <p class="form-status" id="order-status" role="status" aria-live="polite"></p>
