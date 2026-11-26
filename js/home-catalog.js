@@ -1,7 +1,7 @@
 // Главная: слайдер, «Готовы прямо сейчас», коллекции, студии с картой, зоны доставки.
 import { api } from "./api.js?v=1";
-import { esc, icon, observeReveal, productCard, safeImg, urls } from "./app.js?v=1";
-import { formatPrice, tzLabel } from "./rules.js?v=1";
+import { esc, icon, observeReveal, productCard, safeImg, urls } from "./app.js?v=2";
+import { formatPrice, tzLabel } from "./rules.js?v=2";
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 

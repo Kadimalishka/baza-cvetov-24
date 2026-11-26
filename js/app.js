@@ -1,6 +1,6 @@
 // Общий слой страниц: шапка, корзина в localStorage, экранирование, иконки, ссылки, появление блоков.
 import { MOCK } from "./api.js?v=1";
-import { formatPrice } from "./rules.js?v=1";
+import { formatPrice } from "./rules.js?v=2";
 
 const ESC = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
 
@@ -36,12 +36,16 @@ export const urls = {
 
 /* ---------- Карточка товара (главная, магазин, страница категории) ---------- */
 
-export function priceHtml(p) {
+export function priceHtml(p, qty = 1) {
+  const count = Number.isInteger(qty) && qty > 0 ? Math.min(qty, 50) : 1;
   const prefix = p.price_prefix ? `${esc(p.price_prefix)} ` : "";
-  if (p.discount_active && p.sale_price) {
-    return `<span class="price price--sale">${prefix}${formatPrice(p.sale_price)}</span> <s class="price-old"><span class="visually-hidden">Было </span>${formatPrice(p.price)}</s>`;
+  const onSale = Boolean(p.discount_active && p.sale_price);
+  const current = (onSale ? p.sale_price : p.price) * count;
+  const note = count > 1 ? `<span class="price-qty">за ${count} шт.</span>` : "";
+  if (onSale) {
+    return `<span class="price price--sale">${prefix}${formatPrice(current)}</span> <s class="price-old"><span class="visually-hidden">Было </span>${formatPrice(p.price * count)}</s>${note}`;
   }
-  return `<span class="price">${prefix}${formatPrice(p.price)}</span>`;
+  return `<span class="price">${prefix}${formatPrice(current)}</span>${note}`;
 }
 
 export function productBadges(p) {

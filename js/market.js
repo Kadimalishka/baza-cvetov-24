@@ -1,6 +1,6 @@
 // Магазин, SEO-шаблоны категории и товара, диалог товара, корзина и оформление заказа.
 import { api, ApiError, MOCK } from "./api.js?v=1";
-import { cart, enhanceDialog, esc, icon, observeReveal, priceHtml, productBadges, productCard, safeImg, toast, urls } from "./app.js?v=1";
+import { cart, enhanceDialog, esc, icon, observeReveal, priceHtml, productBadges, productCard, safeImg, toast, urls } from "./app.js?v=2";
 import {
   addDays,
   availabilityLine,
@@ -16,7 +16,7 @@ import {
   tzLabel,
   validateOrder,
   zonedNow,
-} from "./rules.js?v=1";
+} from "./rules.js?v=2";
 
 const SIZE_LABELS = { S: "Маленький", M: "Средний", L: "Большой" };
 const MONTHS = ["январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"];
@@ -300,14 +300,14 @@ function productDetailHtml(p, mode) {
     </div>
     <div class="detail__body">
       <${Heading} class="detail__title" id="detail-title">${esc(p.title)}</${Heading}>
-      <p class="detail__price">${priceHtml(p)}</p>
+      <p class="detail__price" data-line-price>${priceHtml(p)}</p>
       <p class="detail__availability">${icon(p.no_delivery ? "store" : "truck")}<span>${esc(availabilityLine(p, state.delivery))}</span></p>
       ${p.description ? `<div class="detail__text">${paragraphs(p.description)}</div>` : ""}
       <dl class="detail__facts">
         ${p.flower_types.length ? `<div><dt>Состав</dt><dd>${esc(p.flower_types.join(", "))}</dd></div>` : ""}
         ${p.size ? `<div><dt>Размер</dt><dd>${esc(SIZE_LABELS[p.size] ?? p.size)}</dd></div>` : ""}
       </dl>
-      <div class="detail__buy">
+        <div class="detail__buy" data-dock-avoid>
         <div class="qty" role="group" aria-label="Количество">
           <button class="icon-btn" type="button" data-qty="-1" aria-label="Меньше">${icon("minus")}</button>
           <output class="qty__value" data-qty-value aria-live="polite">1</output>
@@ -322,10 +322,15 @@ function productDetailHtml(p, mode) {
 function bindDetail(root, p, onAdded) {
   let qty = 1;
   const out = root.querySelector("[data-qty-value]");
+  const price = root.querySelector("[data-line-price]");
+  const paint = () => {
+    out.textContent = String(qty);
+    if (price) price.innerHTML = priceHtml(p, qty);
+  };
   root.querySelectorAll("[data-qty]").forEach((b) =>
     b.addEventListener("click", () => {
       qty = Math.min(50, Math.max(1, qty + Number(b.dataset.qty)));
-      out.textContent = String(qty);
+      paint();
     }),
   );
   root.querySelector("[data-add-to-cart]").addEventListener("click", (e) => {
@@ -386,7 +391,7 @@ function renderCart() {
         <img src="${esc(safeImg(p.image_thumb_url || p.image_url))}" alt="" width="72" height="90">
         <div class="cart-line__info">
           <p class="cart-line__title">${esc(p.title)}</p>
-          <p class="cart-line__price">${priceHtml(p)}</p>
+          <p class="cart-line__price">${priceHtml(p, qty)}</p>
           ${p.no_delivery ? '<p class="cart-line__note">Только самовывоз</p>' : ""}
         </div>
         <div class="qty qty--sm" role="group" aria-label="Количество: ${esc(p.title)}">

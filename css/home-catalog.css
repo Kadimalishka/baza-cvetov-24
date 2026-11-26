@@ -108,37 +108,72 @@
 
 @media (max-width: 767px) {
   .hero {
-    min-height: auto;
-    align-content: end;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
   }
 
   .hero__slides {
     position: relative;
-    height: 42svh;
-    max-height: 380px;
-    min-height: 220px;
+    z-index: 0;
+    height: 78vw;
+    min-height: 260px;
+    max-height: 460px;
+    overflow: hidden;
   }
 
-  .hero__slides::after {
-    background: linear-gradient(180deg, transparent 48%, var(--bg-primary) 88%);
+  .hero__slide,
+  .hero__slide picture {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
   }
 
   .hero__slide img {
-    object-position: 50% 45%;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: 50% 62%;
   }
 
-  .hero {
-    display: flex;
-    flex-direction: column;
+  .hero__slides::after {
+    background: linear-gradient(180deg, transparent 72%, color-mix(in srgb, var(--bg-primary) 40%, transparent));
   }
 
   .hero__content {
+    position: relative;
+    z-index: 1;
     margin-top: 0;
-    padding-block: 8px 72px;
+    padding-block: 20px 8px;
+  }
+
+  .hero__title {
+    margin-bottom: 10px;
+    font-size: clamp(2.4rem, 11vw, 3.4rem);
+  }
+
+  .hero__lead {
+    margin-bottom: 16px;
+    font-size: 1rem;
+  }
+
+  .hero__actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+    min-height: 48px;
+    padding-inline: 12px;
   }
 
   .hero__dots-wrap {
-    inset: auto 0 16px;
+    position: static;
+    padding-bottom: 12px;
   }
 }
 

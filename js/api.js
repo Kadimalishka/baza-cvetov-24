@@ -7,7 +7,7 @@ import {
   effectivePrice,
   validateOrder,
   zonedNow,
-} from "./rules.js?v=1";
+} from "./rules.js?v=2";
 
 export const MOCK = true;
 

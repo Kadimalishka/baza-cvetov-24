@@ -115,7 +115,7 @@ export function branchNames(ids, pickup) {
 }
 
 export function availabilityLine(product, delivery) {
-  const pickup = delivery.pickup;
+  const pickup = (delivery.pickup ?? []).filter((b) => !b.demo);
   const ids = (product.pickup_branches ?? []).filter((id) => pickup.some((b) => b.id === id));
   if (product.no_delivery) {
     const where = ids.map((id) => pickup.find((b) => b.id === id).address).join("; ");
@@ -128,6 +128,7 @@ export function availabilityLine(product, delivery) {
   if (delivery.free_from) line += `, бесплатно от ${formatPrice(delivery.free_from)}`;
   line += ". ";
   if (ids.length === 0) line += "Самовывоз недоступен";
+  else if (ids.length === 1) line += `Самовывоз: ${pickup.find((b) => b.id === ids[0]).address}`;
   else if (ids.length === pickup.length) line += "Самовывоз из всех студий";
   else line += `Самовывоз только из студии ${branchNames(ids, pickup).join(", ")}`;
   return line;
