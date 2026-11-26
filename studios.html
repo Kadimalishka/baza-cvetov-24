@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Студии — База цветов 24</title>
+  <meta name="description" content="Студия «База цветов 24» на Алтуфьевском шоссе, 56. Ежедневно, круглосуточно.">
+  <meta name="theme-color" content="#F5F3F1">
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="assets/favicon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/fonts.css?v=1">
+  <link rel="stylesheet" href="css/styles.css?v=1">
+  <link rel="stylesheet" href="css/sunlight.css?v=1">
+  <link rel="stylesheet" href="css/home-catalog.css?v=5">
+  <link rel="stylesheet" href="css/market.css?v=3">
+  <link rel="stylesheet" href="css/contact-dock.css?v=1">
+  <script>document.documentElement.classList.add("js");</script>
+  <script type="module" src="js/app.js?v=2"></script>
+  <script type="module" src="js/contact-dock.js?v=1"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">К содержимому</a>
+  <div class="sunlight" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="База цветов 24 — на главную">
+        <svg class="logo__mark" aria-hidden="true"><use href="assets/icons/sprite.svg#i-berry"></use></svg>
+        <span class="logo__word">База цветов <span>24</span></span>
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Основное меню">
+        <ul>
+          <li><a href="shop.html">Каталог</a></li>
+          <li><a href="shop.html?offers=1">Предложения</a></li>
+          <li><a href="studios.html" aria-current="page">Студии</a></li>
+          <li><a href="delivery.html">Доставка</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="header-cart" href="shop.html#cart" data-cart-open aria-label="Корзина">
+          <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#i-cart"></use></svg>
+          <span class="cart-count" data-cart-count hidden>0</span>
+        </a>
+        <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню">
+          <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#i-menu"></use></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+  <main id="main">
+    <section class="section" id="studios">
+      <div class="container">
+        <nav class="crumbs" aria-label="Хлебные крошки"><ol><li><a href="index.html">Главная</a></li><li aria-current="page">Студии</li></ol></nav>
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Где нас найти</p>
+            <h1 id="studios-title">Студии</h1>
+          </div>
+        </div>
+        <div class="studios">
+          <ul class="studios__list" id="studios-list">
+            <li class="studio-card is-active">
+              <h2 class="studio-card__name">База цветов 24 на Алтуфьевском</h2>
+              <p class="studio-card__row"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#i-pin"></use></svg><span>Москва, Алтуфьевское шоссе, 56<br><span class="muted">Этаж и вход уточняются</span></span></p>
+              <p class="studio-card__row"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#i-clock"></use></svg><span>Ежедневно, круглосуточно</span></p>
+              <p class="studio-card__row"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#i-phone"></use></svg><a href="tel:+79260419988">+7 (926) 041-99-88</a></p>
+            </li>
+          </ul>
+          <div class="studio-map" id="studio-map">
+            <img class="studio-map__cover" src="assets/photos/studio.jpg" alt="Студия на Алтуфьевском шоссе" width="1200" height="800">
+            <div class="studio-map__overlay">
+              <button class="btn" type="button" id="map-load">
+                <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#i-pin"></use></svg>
+                Показать карту
+              </button>
+              <a class="btn btn--light" id="map-link" href="https://yandex.ru/maps/org/baza_tsvetov_24/31177839922/" target="_blank" rel="noopener">Открыть в Яндекс Картах</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      document.getElementById("map-load").addEventListener("click", () => {
+        const map = document.getElementById("studio-map");
+        if (map.querySelector("iframe")) return;
+        const frame = document.createElement("iframe");
+        frame.title = "Карта: База цветов 24 на Алтуфьевском";
+        frame.loading = "lazy";
+        frame.referrerPolicy = "no-referrer-when-downgrade";
+        frame.src = "https://yandex.ru/map-widget/v1/?ll=37.587486%2C55.881497&z=16&pt=37.587486%2C55.881497%2Cpm2rdm";
+        map.prepend(frame);
+        map.classList.add("is-loaded");
+      });
+    </script>
+  </main>
+  <footer class="light-footer" data-dock-avoid>
+    <div class="container">
+      <p>© <span data-year>2026</span> База цветов 24 (Москва) · <a href="tel:+79260419988">+7 (926) 041-99-88</a></p>
+      <nav aria-label="Документы">
+        <ul>
+          <li><a href="privacy.html">Политика</a></li>
+          <li><a href="consent.html">Согласие</a></li>
+          <li><a href="offer.html">Оферта</a></li>
+          <li><a href="requisites.html">Реквизиты</a></li>
+        </ul>
+      </nav>
+      <div class="binc-made-row" style="display:flex;justify-content:flex-end;flex-basis:100%;width:100%;grid-column:1/-1;padding-top:16px">
+        <a class="binc-made binc-made--black" href="https://b-inc.ru/" target="_blank" rel="noopener"><span class="binc-made__muted">Сделано вместе&nbsp;с</span> <span class="binc-made__name">Бинк</span></a>
+        <style>
+        a.binc-made.binc-made--white,a.binc-made.binc-made--black{display:inline-flex;align-items:baseline;gap:.3em;padding:6px 0;margin:0;border:0;background:none;font:400 22px/1 Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;letter-spacing:0;text-transform:none;text-decoration:none;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+        a.binc-made.binc-made--white{color:#fff}
+        a.binc-made.binc-made--black{color:#0b0b0c}
+        a.binc-made .binc-made__muted{opacity:.72;transition:opacity .2s ease}
+        a.binc-made.binc-made--solid .binc-made__muted{opacity:1}
+        a.binc-made .binc-made__name{font-size:1.5em;font-weight:600;letter-spacing:-.015em;line-height:1;color:inherit}
+        a.binc-made:hover .binc-made__muted,a.binc-made:focus-visible .binc-made__muted{opacity:1}
+        a.binc-made:focus-visible{outline:2px solid currentColor;outline-offset:4px;border-radius:4px}
+        @media (prefers-reduced-motion:reduce){a.binc-made .binc-made__muted{transition:none}}
+        </style>
+      </div>
+    </div>
+  </footer>
+  <aside class="contact-dock" aria-label="Связаться с магазином">
+    <ul class="contact-dock__list" id="contact-dock-list">
+      <li><a class="contact-dock__link" href="tel:+79260419988"><svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#i-phone"></use></svg>Позвонить</a></li>
+    </ul>
+    <button class="contact-dock__toggle" type="button" aria-expanded="false" aria-controls="contact-dock-list">
+      <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#i-phone"></use></svg>
+      <span class="contact-dock__toggle-text">Связаться</span>
+    </button>
+  </aside>
+</body>
+</html>
