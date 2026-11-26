@@ -1,0 +1,82 @@
+/* Документы: privacy, consent, offer, requisites. */
+.legal {
+  padding-block: clamp(40px, 6vw, 72px);
+}
+
+.legal__inner {
+  max-width: 760px;
+}
+
+.legal__crumbs {
+  margin-bottom: 20px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.legal__crumbs a {
+  color: var(--text-muted);
+}
+
+.legal h1 {
+  font-size: clamp(2.2rem, 4.6vw, 3.4rem);
+}
+
+.legal__meta {
+  margin-bottom: 28px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.legal__draft {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 32px;
+  padding: 18px 20px;
+  border: 1px dashed var(--accent-gold);
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+}
+
+.legal__draft .icon {
+  color: var(--accent-gold-text);
+}
+
+.legal__draft p {
+  margin: 0;
+}
+
+.legal__body h2 {
+  margin-top: 1.6em;
+  font-size: clamp(1.5rem, 2.6vw, 1.9rem);
+}
+
+.legal__body ol,
+.legal__body ul {
+  padding-left: 1.3em;
+}
+
+.legal__body li {
+  margin-bottom: 0.5em;
+}
+
+.legal__others {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.legal__others ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.legal__others a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}

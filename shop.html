@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Каталог — База цветов 24</title>
+  <meta name="description" content="Каталог магазина «База цветов 24»: букеты, шляпные коробки, монобукеты, растения. Москва, Алтуфьевское шоссе, 56.">
+  <meta name="theme-color" content="#F5F3F1">
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/assets/favicon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/montserrat-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/fonts.css?v=1">
+  <link rel="stylesheet" href="/css/styles.css?v=1">
+  <link rel="stylesheet" href="/css/sunlight.css?v=1">
+  <link rel="stylesheet" href="/css/market.css?v=2">
+  <link rel="stylesheet" href="/css/contact-dock.css?v=1">
+  <script>
+    document.documentElement.classList.add("js");
+  </script>
+  <script type="module" src="/js/market.js?v=2"></script>
+  <script type="module" src="/js/contact-dock.js?v=1"></script>
+</head>
+<body data-page="shop">
+  <a class="skip-link" href="#main">К содержимому</a>
+  <div class="sunlight" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="/" aria-label="База цветов 24 — на главную">
+        <svg class="logo__mark" aria-hidden="true"><use href="/assets/icons/sprite.svg#i-berry"></use></svg>
+        <span class="logo__word">База цветов <span>24</span></span>
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Основное меню">
+        <ul>
+          <li><a href="/shop.html" aria-current="page">Каталог</a></li>
+          <li><a href="/shop.html?offers=1">Предложения</a></li>
+          <li><a href="/#studios">Студии</a></li>
+          <li><a href="/#delivery">Доставка</a></li>
+          <li><a href="/#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="header-cart" href="/shop.html#cart" data-cart-open aria-label="Корзина">
+          <svg class="icon" aria-hidden="true"><use href="/assets/icons/sprite.svg#i-cart"></use></svg>
+          <span class="cart-count" data-cart-count hidden>0</span>
+        </a>
+        <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню">
+          <svg class="icon" aria-hidden="true"><use href="/assets/icons/sprite.svg#i-menu"></use></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="shop-main">
+    <div class="container">
+      <nav class="crumbs" aria-label="Хлебные крошки">
+        <ol>
+          <li><a href="/">Главная</a></li>
+          <li aria-current="page" id="shop-crumb">Каталог</li>
+        </ol>
+      </nav>
+      <header class="shop-head">
+        <h1 id="shop-title">Каталог</h1>
+        <p class="shop-lead" id="shop-lead">Все букеты, коробки, растения и подарки.</p>
+        <a class="shop-seo-link" id="shop-seo-link" href="/catalog.html" hidden>Страница коллекции</a>
+      </header>
+
+      <div class="chips" id="category-chips" role="group" aria-label="Категории"></div>
+
+      <div class="shop-toolbar">
+        <label class="search">
+          <svg class="icon" aria-hidden="true"><use href="/assets/icons/sprite.svg#i-search"></use></svg>
+          <span class="visually-hidden">Поиск по каталогу</span>
+          <input class="input" id="shop-search" type="search" placeholder="Поиск: розы, коробка…" autocomplete="off">
+        </label>
+        <label class="sort">
+          <span class="visually-hidden">Сортировка</span>
+          <select class="select" id="shop-sort">
+            <option value="default">Сначала рекомендуемые</option>
+            <option value="cheap">Сначала дешевле</option>
+            <option value="expensive">Сначала дороже</option>
+            <option value="new">Сначала новинки</option>
+          </select>
+        </label>
+        <button class="btn btn--ghost btn--sm filters-toggle" type="button" id="filters-toggle" aria-expanded="false" aria-controls="shop-filters">
+          Фильтры <span class="filters-count" id="filters-count"></span>
+        </button>
+      </div>
+
+      <div class="shop-layout">
+        <aside class="shop-filters" id="shop-filters" aria-label="Фильтры">
+          <div class="filter-group">
+            <p class="filter-title">Цена, ₽</p>
+            <div class="price-range">
+              <label><span class="visually-hidden">Цена от</span><input class="input" id="price-min" inputmode="numeric" placeholder="от"></label>
+              <span aria-hidden="true">—</span>
+              <label><span class="visually-hidden">Цена до</span><input class="input" id="price-max" inputmode="numeric" placeholder="до"></label>
+            </div>
+          </div>
+          <div class="filter-group">
+            <label class="filter-title" for="filter-where">Как получить</label>
+            <select class="select" id="filter-where"></select>
+          </div>
+          <fieldset class="filter-group">
+            <legend class="filter-title">Состав</legend>
+            <div id="filter-flowers" class="filter-checks"></div>
+          </fieldset>
+          <fieldset class="filter-group">
+            <legend class="filter-title">Размер</legend>
+            <div id="filter-sizes" class="filter-checks"></div>
+          </fieldset>
+          <button class="link-btn" type="button" data-reset-filters>Сбросить фильтры</button>
+        </aside>
+
+        <section class="shop-results" aria-label="Товары">
+          <p class="shop-count" id="shop-count" role="status" aria-live="polite"></p>
+          <div class="product-grid" id="shop-grid">
+            <noscript><p>Для работы магазина нужен JavaScript. Позвоните нам: <a href="tel:+79260419988">+7 (926) 041-99-88</a>.</p></noscript>
+          </div>
+          <div class="shop-empty" id="shop-empty" hidden>
+            <p>Ничего не нашлось. Попробуйте изменить фильтры.</p>
+            <button class="btn btn--ghost" type="button" data-reset-filters>Сбросить фильтры</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="light-footer" data-dock-avoid>
+    <div class="container">
+      <p>© <span data-year>2026</span> База цветов 24 (Москва) · <a href="tel:+79260419988">+7 (926) 041-99-88</a></p>
+      <nav aria-label="Документы">
+        <ul>
+          <li><a href="/privacy.html">Политика</a></li>
+          <li><a href="/consent.html">Согласие</a></li>
+          <li><a href="/offer.html">Оферта</a></li>
+          <li><a href="/requisites.html">Реквизиты</a></li>
+        </ul>
+      </nav>
+      <div class="binc-made-row" style="display:flex;justify-content:flex-end;flex-basis:100%;width:100%;grid-column:1/-1;padding-top:16px">
+        <!-- Бинк: знак «Сделано вместе с Бинк», чёрный — для светлого фона. https://b-inc.ru -->
+        <a class="binc-made binc-made--black" href="https://b-inc.ru/" target="_blank" rel="noopener"><span class="binc-made__muted">Сделано вместе&nbsp;с</span> <span class="binc-made__name">Бинк</span></a>
+        <style>
+        a.binc-made.binc-made--white,a.binc-made.binc-made--black{display:inline-flex;align-items:baseline;gap:.3em;padding:6px 0;margin:0;border:0;background:none;font:400 22px/1 Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;letter-spacing:0;text-transform:none;text-decoration:none;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+        a.binc-made.binc-made--white{color:#fff}
+        a.binc-made.binc-made--black{color:#0b0b0c}
+        a.binc-made .binc-made__muted{opacity:.72;transition:opacity .2s ease}
+        a.binc-made.binc-made--solid .binc-made__muted{opacity:1}
+        a.binc-made .binc-made__name{font-size:1.5em;font-weight:600;letter-spacing:-.015em;line-height:1;color:inherit}
+        a.binc-made:hover .binc-made__muted,a.binc-made:focus-visible .binc-made__muted{opacity:1}
+        a.binc-made:focus-visible{outline:2px solid currentColor;outline-offset:4px;border-radius:4px}
+        @media (prefers-reduced-motion:reduce){a.binc-made .binc-made__muted{transition:none}}
+        </style>
+      </div>
+    </div>
+  </footer>
+
+  <aside class="contact-dock" aria-label="Связаться с магазином">
+    <ul class="contact-dock__list" id="contact-dock-list">
+      <li><a class="contact-dock__link" href="tel:+79260419988"><svg class="icon" aria-hidden="true"><use href="/assets/icons/sprite.svg#i-phone"></use></svg>Позвонить</a></li>
+      <li><p class="contact-dock__note">Мессенджеры появятся, когда владелец пришлёт ссылки</p></li>
+    </ul>
+    <button class="contact-dock__toggle" type="button" aria-expanded="false" aria-controls="contact-dock-list">
+      <svg class="icon" aria-hidden="true"><use href="/assets/icons/sprite.svg#i-phone"></use></svg>
+      <span class="contact-dock__toggle-text">Связаться</span>
+    </button>
+  </aside>
+</body>
+</html>

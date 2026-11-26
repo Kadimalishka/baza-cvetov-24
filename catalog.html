@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Коллекция — База цветов 24</title>
+  <meta name="description" content="Коллекция магазина «База цветов 24», Москва, Алтуфьевское шоссе, 56.">
+  <meta name="theme-color" content="#F5F3F1">
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/assets/favicon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="/css/fonts.css?v=1">
+  <link rel="stylesheet" href="/css/styles.css?v=1">
+  <link rel="stylesheet" href="/css/sunlight.css?v=1">
+  <link rel="stylesheet" href="/css/market.css?v=2">
+  <script>document.documentElement.classList.add("js");</script>
+  <script type="module" src="/js/market.js?v=2"></script>
+</head>
+<body data-page="category">
+  <a class="skip-link" href="#main">К содержимому</a>
+  <div class="sunlight" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="/" aria-label="База цветов 24 — на главную">
+        <svg class="logo__mark" aria-hidden="true"><use href="/assets/icons/sprite.svg#i-berry"></use></svg>
+        <span class="logo__word">База цветов <span>24</span></span>
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Основное меню">
+        <ul>
+          <li><a href="/shop.html">Каталог</a></li>
+          <li><a href="/shop.html?offers=1">Предложения</a></li>
+          <li><a href="/#studios">Студии</a></li>
+          <li><a href="/#delivery">Доставка</a></li>
+          <li><a href="/#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="header-cart" href="/shop.html#cart" data-cart-open aria-label="Корзина">
+          <svg class="icon" aria-hidden="true"><use href="/assets/icons/sprite.svg#i-cart"></use></svg>
+          <span class="cart-count" data-cart-count hidden>0</span>
+        </a>
+        <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню">
+          <svg class="icon" aria-hidden="true"><use href="/assets/icons/sprite.svg#i-menu"></use></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Этап 1: шаблон заполняется из мока по ?slug=. На этапе 2 сервер отдаёт этот же HTML уже заполненным. -->
+  <main id="main">
+    <div id="seo-root">
+      <div class="container seo-page">
+        <nav class="crumbs" aria-label="Хлебные крошки"><ol><li><a href="/">Главная</a></li><li><a href="/shop.html">Каталог</a></li><li aria-current="page">Коллекция</li></ol></nav>
+        <header class="seo-head"><h1>Коллекция</h1><p class="seo-lead muted">Загружаем товары коллекции…</p></header>
+        <div class="product-grid" aria-busy="true"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="light-footer" data-dock-avoid>
+    <div class="container">
+      <p>© <span data-year>2026</span> База цветов 24 (Москва) · <a href="tel:+79260419988">+7 (926) 041-99-88</a></p>
+      <nav aria-label="Документы">
+        <ul>
+          <li><a href="/privacy.html">Политика</a></li>
+          <li><a href="/consent.html">Согласие</a></li>
+          <li><a href="/offer.html">Оферта</a></li>
+          <li><a href="/requisites.html">Реквизиты</a></li>
+        </ul>
+      </nav>
+      <div class="binc-made-row" style="display:flex;justify-content:flex-end;flex-basis:100%;width:100%;grid-column:1/-1;padding-top:16px">
+        <!-- Бинк: знак «Сделано вместе с Бинк», чёрный — для светлого фона. https://b-inc.ru -->
+        <a class="binc-made binc-made--black" href="https://b-inc.ru/" target="_blank" rel="noopener"><span class="binc-made__muted">Сделано вместе&nbsp;с</span> <span class="binc-made__name">Бинк</span></a>
+        <style>
+        a.binc-made.binc-made--white,a.binc-made.binc-made--black{display:inline-flex;align-items:baseline;gap:.3em;padding:6px 0;margin:0;border:0;background:none;font:400 22px/1 Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;letter-spacing:0;text-transform:none;text-decoration:none;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+        a.binc-made.binc-made--white{color:#fff}
+        a.binc-made.binc-made--black{color:#0b0b0c}
+        a.binc-made .binc-made__muted{opacity:.72;transition:opacity .2s ease}
+        a.binc-made.binc-made--solid .binc-made__muted{opacity:1}
+        a.binc-made .binc-made__name{font-size:1.5em;font-weight:600;letter-spacing:-.015em;line-height:1;color:inherit}
+        a.binc-made:hover .binc-made__muted,a.binc-made:focus-visible .binc-made__muted{opacity:1}
+        a.binc-made:focus-visible{outline:2px solid currentColor;outline-offset:4px;border-radius:4px}
+        @media (prefers-reduced-motion:reduce){a.binc-made .binc-made__muted{transition:none}}
+        </style>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,123 @@
+/* Плавающий док контактов: справа внизу, с учётом safe-area; прячется, когда рядом кнопки формы или открыт диалог. */
+.contact-dock {
+  position: fixed;
+  right: calc(16px + env(safe-area-inset-right));
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  z-index: 30;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  gap: 10px;
+  transition:
+    opacity var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
+}
+
+.contact-dock.is-hidden {
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+}
+
+.contact-dock__toggle,
+.contact-dock__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 52px;
+  height: 52px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--bg-olive);
+  color: var(--text-light);
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: var(--shadow-hover);
+  cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.contact-dock__toggle:active,
+.contact-dock__link:active {
+  transform: scale(0.97);
+}
+
+.contact-dock__link {
+  background: var(--bg-card);
+  color: var(--text-dark);
+  border: 1px solid var(--border-card);
+}
+
+@media (hover: hover) {
+  .contact-dock__toggle:hover {
+    background: var(--bg-olive-hover);
+  }
+
+  .contact-dock__link:hover {
+    color: var(--text-olive);
+    border-color: var(--border-olive);
+  }
+}
+
+.contact-dock__list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.js .contact-dock__list {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity var(--dur) var(--ease),
+    transform var(--dur) var(--ease),
+    visibility 0s linear var(--dur);
+}
+
+.js .contact-dock.is-open .contact-dock__list {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
+}
+
+.contact-dock__note {
+  max-width: 220px;
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  box-shadow: var(--shadow-card);
+}
+
+html:not(.js) .contact-dock__toggle {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .contact-dock__toggle-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .contact-dock__toggle {
+    padding: 0;
+  }
+}

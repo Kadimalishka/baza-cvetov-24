@@ -1,0 +1,51 @@
+/* «Свет из окна»: тёплое пятно морошки и мягкие тени листьев. Едва заметно, не перехватывает клики. */
+.sunlight {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sunlight::before {
+  content: "";
+  position: absolute;
+  top: -20vh;
+  right: -15vw;
+  width: 70vw;
+  height: 80vh;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent-gold) 16%, transparent), transparent);
+  opacity: 0.55;
+}
+
+.sunlight::after {
+  content: "";
+  position: absolute;
+  top: -10vh;
+  right: -6vw;
+  width: min(760px, 70vw);
+  aspect-ratio: 1;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cg fill='%232F4A44'%3E%3Cpath d='M60 40c60 10 100 50 110 120-60-6-104-50-110-120Z'/%3E%3Cpath d='M210 20c40 40 50 90 20 150-40-40-48-96-20-150Z'/%3E%3Cpath d='M300 120c50 0 86 30 96 80-50 6-86-24-96-80Z'/%3E%3Cpath d='M120 230c56-14 106 6 140 60-56 16-106-6-140-60Z'/%3E%3Cpath d='M260 260c30 30 36 74 14 120-30-30-36-76-14-120Z'/%3E%3Cpath d='M30 300c40-4 72 18 86 56-40 6-72-16-86-56Z'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+  filter: blur(22px);
+  opacity: 0.05;
+  transform-origin: 80% 10%;
+  animation: leaves-sway 14s var(--ease) infinite alternate;
+}
+
+@keyframes leaves-sway {
+  to {
+    transform: rotate(2.5deg) translate(-12px, 8px);
+  }
+}
+
+@media (max-width: 767px) {
+  .sunlight::after {
+    opacity: 0.035;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sunlight::after {
+    animation: none;
+  }
+}

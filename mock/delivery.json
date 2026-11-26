@@ -1,0 +1,63 @@
+{
+  "zones": [
+    { "id": "zone-1", "name": "Пример: ближний район", "price": 500 },
+    { "id": "zone-2", "name": "Пример: средний район", "price": 800 },
+    { "id": "zone-3", "name": "Пример: дальний район", "price": 1200 }
+  ],
+  "surprise_zones": [
+    { "id": "surprise-city", "name": "Сюрприз по городу", "price": 900 },
+    { "id": "surprise-out", "name": "Сюрприз за городом", "price": 1500 }
+  ],
+  "free_from": null,
+  "pickup": [
+    {
+      "id": "altufyevskoe-56",
+      "name": "База цветов 24 на Алтуфьевском",
+      "short": "Алтуфьевское ш., 56",
+      "address": "Москва, Алтуфьевское шоссе, 56",
+      "details": "Этаж и вход уточняются",
+      "hours": "Ежедневно, круглосуточно",
+      "phone": "+7 (926) 041-99-88"
+    },
+    {
+      "id": "test-studio-2",
+      "name": "Пример второй студии",
+      "short": "Пример точки",
+      "address": "Адрес не указан",
+      "details": "Не действующая точка. Так видно, что часть товаров забирают только в одной студии.",
+      "hours": "Часы не указаны",
+      "phone": "",
+      "demo": true
+    }
+  ],
+  "payment_mode": "test",
+  "slots": [
+    { "start": "09:30", "minutes": 60, "label": "09:30–10:30" },
+    { "start": "10:30", "minutes": 60, "label": "10:30–11:30" },
+    { "start": "11:30", "minutes": 60, "label": "11:30–12:30" },
+    { "start": "12:30", "minutes": 60, "label": "12:30–13:30" },
+    { "start": "13:30", "minutes": 60, "label": "13:30–14:30" },
+    { "start": "14:30", "minutes": 60, "label": "14:30–15:30" },
+    { "start": "15:30", "minutes": 60, "label": "15:30–16:30" },
+    { "start": "16:30", "minutes": 60, "label": "16:30–17:30" },
+    { "start": "17:30", "minutes": 60, "label": "17:30–18:30" },
+    { "start": "18:30", "minutes": 60, "label": "18:30–19:30" },
+    { "start": "19:30", "minutes": 60, "label": "19:30–20:30" }
+  ],
+  "pickup_slots": [
+    { "start": "09:00", "minutes": 60, "label": "09:00–10:00" },
+    { "start": "10:00", "minutes": 60, "label": "10:00–11:00" },
+    { "start": "11:00", "minutes": 60, "label": "11:00–12:00" },
+    { "start": "12:00", "minutes": 60, "label": "12:00–13:00" },
+    { "start": "13:00", "minutes": 60, "label": "13:00–14:00" },
+    { "start": "14:00", "minutes": 60, "label": "14:00–15:00" },
+    { "start": "15:00", "minutes": 60, "label": "15:00–16:00" },
+    { "start": "16:00", "minutes": 60, "label": "16:00–17:00" },
+    { "start": "17:00", "minutes": 60, "label": "17:00–18:00" },
+    { "start": "18:00", "minutes": 60, "label": "18:00–19:00" },
+    { "start": "19:00", "minutes": 60, "label": "19:00–20:00" }
+  ],
+  "booking_days": 60,
+  "lead_minutes": 60,
+  "timezone": "Europe/Moscow"
+}
