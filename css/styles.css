@@ -404,6 +404,12 @@ textarea {
 
 /* ---------- Шапка ---------- */
 
+#studios,
+#delivery,
+#contacts {
+  scroll-margin-top: calc(var(--header-height) + 12px);
+}
+
 .site-header {
   position: sticky;
   top: 0;
